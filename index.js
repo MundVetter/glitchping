@@ -1,6 +1,5 @@
 const Canvas = require('term-canvas')
-const game = 
-let size = process.stdout.getWindowSize();
+const gp_engine = require("gp_engine")
 
 process.on('SIGINT', function(){
   ctx.reset();
@@ -9,31 +8,28 @@ process.on('SIGINT', function(){
   });
 });
 
-process.on('SIGWINCH', function(){
-  size = process.stdout.getWindowSize();
-  canvas.width = size[0];
-  canvas.height = size[1];
-  x2 = x = 1;
-  y2 = y = 1;
-});
+// process.on('SIGWINCH', function(){});
 
-var canvas = new Canvas(size[0], size[1])
-  , ctx = canvas.getContext('2d')
-  , x = 1
-  , y = 2
-  , sx = 2
-  , sy = 2
-  , x2 = 1
-  , y2 = 5
-  , sx2 = 1
-  , sy2 = 1;
+// var canvas = new Canvas(size[0], size[1])
+//   , ctx = canvas.getContext('2d')
+//   , x = 1
+//   , y = 2
+//   , sx = 2
+//   , sy = 2
+//   , x2 = 1
+//   , y2 = 5
+//   , sx2 = 1
+//   , sy2 = 1;
+
+const canvas = new Canvas(640, 360)
+const ctx = canvas.getContext('2d')
 
 ctx.hideCursor();
 setInterval(() => {
 
-  // ctx.clearRect(0, 0, canvas.width, canvas.height);
-  // ctx.strokeStyle = 'blue';
-  // ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = 'blue';
+  ctx.strokeRect(1, 1, canvas.width - 1, canvas.height - 1);
   // ctx.strokeStyle = 'green';
   // ctx.strokeRect(x += sx, y += sy, 30, 5);
   // ctx.fillStyle = 'yellow';
