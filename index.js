@@ -35,7 +35,7 @@ process.stdin.on('keypress', (str, key) => {
     controller.activateKey(key.name)
     setTimeout(() => {
       controller.deactivateKey(key.name)
-    }, 200);
+    }, 180);
   }
 });
 
@@ -63,10 +63,9 @@ setInterval(() => {
   const bpos = mp(...ball.pos, canvas, game)
   let bsize = mp(ball.size, ball.size, canvas, game)
   bsize = (bsize[0] < 1 || bsize[1] < 1) ? [1, 1] : bsize
-  // console.log(bsize)
   ctx.fillStyle = 'white'
   ctx.fillRect(bpos[0], bpos[1], bsize[0], bsize[1])
-}, 1000 / 60);
+}, 17);
 
 function mp (x, y, canvas, game) {
   return new Uint8Array([x * (canvas.width / 640), y * (canvas.height / 360)])
