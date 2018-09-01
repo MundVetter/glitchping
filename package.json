@@ -1,8 +1,10 @@
 {
-  "name": "glitchping_term",
+  "name": "glitchping",
   "version": "1.0.0",
   "description": "Glitchping for the terminal",
-  "main": "index.js",
+  "main": "./lib/index.js",
+  "bin": "./bin/run.js",
+  "preferGlobal": true,
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
